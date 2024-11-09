@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is For You Kharen </title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient background */
+            color: white; /* White text color for contrast */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Styling for the title */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Container for buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+            width: 100%;
+            height: 300px; /* Set a fixed height for the container */
+        }
+
+        /* Styling for buttons */
+        button {
+            padding: 20px 40px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for the button */
+        }
+
+        /* Yes button color and hover */
+        #yesButton {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+
+        #yesButton:hover {
+            background-color: #45a049; /* Darker green on hover */
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on hover */
+        }
+
+        /* No button color and hover */
+        #noButton {
+            background-color: #f44336; /* Red */
+            color: white;
+        }
+
+        #noButton:hover {
+            background-color: #e53935; /* Darker red on hover */
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+        }
+
+        /* Message below the buttons */
+        #message {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #FFEB3B; /* Yellow color for the message */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>"Have you done the laundry?"</h1>
+
+    <div class="button-container">
+        <button id="yesButton" onclick="onYesClick()">Yes</button>
+        <button id="noButton" onmouseover="onNoHover()">No</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script>
+        function onYesClick() {
+            // Open a new page with the message "I love you!"
+            const newWindow = window.open();
+            newWindow.document.write('<h1>WOW VERY GOOD</h1>');
+            newWindow.document.body.style.backgroundColor = "#4CAF50"; // Set background color for the new page
+            newWindow.document.body.style.color = "white"; // Text color for better contrast
+            newWindow.document.body.style.textAlign = "center";
+            newWindow.document.body.style.paddingTop = "100px";
+        }
+
+        function onNoHover() {
+            // Get the container and button elements
+            const buttonContainer = document.querySelector('.button-container');
+            const noButton = document.getElementById("noButton");
+
+            // Generate a random position for the "No" button within the container
+            const containerWidth = buttonContainer.offsetWidth;
+            const containerHeight = buttonContainer.offsetHeight;
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
+
+            // Calculate random x and y positions
+            const randomX = Math.random() * (containerWidth - buttonWidth);
+            const randomY = Math.random() * (containerHeight - buttonHeight);
+
+            // Position the "No" button at the random location
+            noButton.style.position = "absolute";
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        }
+    </script>
+
+</body>
+</html>
